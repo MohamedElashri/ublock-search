@@ -1,0 +1,3 @@
+! Title: Remove spammy search results
+! description: Block spam/clones results from search engines
+! Expires: 2 days
