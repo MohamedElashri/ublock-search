@@ -1,0 +1,32 @@
+name: Search filter CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - domains/domain_list.txt
+      - websites.txt
+      - all.sh
+      - ".github/workflows/all.yml"
+
+jobs:
+  make-search-filter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build search-filter.txt
+        run: |
+          chmod +x ./all.sh
+          sudo ./all.sh
+      - name: Push filters txt files to the orphan release branch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git checkout --orphan release
+          git reset
+          git add -f search-filter.txt google-filter.txt bing-filter.txt duckduckgo-filter.txt searx-filter.txt yahoo-filter.txt
+          git commit -m "Build filters"
+          git push -f --set-upstream origin release
