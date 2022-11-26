@@ -6,6 +6,9 @@ This list provide ublock origin with what it should block in search engine resul
 
 - Google
 - DuckDuckGo
+- Yahoo
+- Bing
+- SearxNG (My two instances)
 
 ## Usage 
 
