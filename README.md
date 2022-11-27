@@ -1,4 +1,4 @@
-# search rules for ublock origin
+# Search rules for ublock origin
 
 This list provide ublock origin with what it should block in search engine results 
 
